@@ -6,7 +6,7 @@
 [ext_resource path="res://art/enemyFlyingAlt_1.png" type="Texture" id=4]
 [ext_resource path="res://art/enemySwimming_1.png" type="Texture" id=5]
 [ext_resource path="res://art/enemyWalking_1.png" type="Texture" id=6]
-[ext_resource path="res://scripts/Mob.gd" type="Script" id=7]
+[ext_resource path="res://scripts/Mob2.gd" type="Script" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -27,10 +27,11 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 35.3937
-height = 30.1352
+radius = 35.9702
+height = 28.4876
 
-[node name="Mob" type="RigidBody2D"]
+[node name="Mob2" type="RigidBody2D"]
+scale = Vector2( 0.75, 0.75 )
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource( 7 )
@@ -39,9 +40,11 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 1 )
 animation = "walk"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,5 +1,6 @@
 extends Area2D
 signal hit
+signal agafar_moneda
 
 export var speed = 400
 var screen_size
@@ -46,9 +47,13 @@ func _process(delta):
 
 
 func _on_Player_body_entered(body):
-	hide()
-	emit_signal("hit")
-	$CollisionShape2D.set_deferred("disabled", true)
+	if body.get_name() == "Moneda":
+		#emit_signal("agafar_moneda")
+		body._on_agafar_moneda()
+	else:
+		hide()
+		emit_signal("hit")
+		$CollisionShape2D.set_deferred("disabled", true)
 
 func start(pos):
 	position = pos
